@@ -186,6 +186,11 @@ public class ZhuanjiaOrderController {
     /**
     * 后端修改【代理模式】
     */
+    //4：病人找护士打针（控制器调用）
+    /**
+     * 病人（客户端）来到医院（控制器），说要打针（/shenhe请求）。
+     * 医院安排护士（auditProxy）接待病人，护士按医生的方法完成打针。
+     * **/
     @RequestMapping("/shenhe")
     public R shenhe(@RequestBody ZhuanjiaOrderEntity order, HttpServletRequest request) {
         return auditProxy.audit(order, request);
@@ -207,7 +212,13 @@ public class ZhuanjiaOrderController {
 //
 //    }
 
+
     // 核心业务方法（供代理调用）
+    //3：医生的核心打针方法
+    /***
+     * 医生（ZhuanjiaOrderController）定义了打针的核心步骤（doShenhe）：消毒、进针、推药等。
+     * 遇到特殊情况（如青霉素），医生会先做皮试（业务逻辑），再打针。
+     * */
     public R doShenhe(ZhuanjiaOrderEntity order, HttpServletRequest request) {
         try {
             if (order.getZhuanjiaOrderYesnoTypes() == 3) {

@@ -4,6 +4,11 @@ import com.entity.HuiyuanEntity;
 import com.utils.R;
 import javax.servlet.http.HttpServletRequest;
 
+/**
+ * 医院场景类比：护士更新病人档案的分工协作
+ * **/
+//1：定义 "更新信息" 的标准流程（接口）
+//类比：医院规定，所有病人信息更新必须经过护士审核（update方法），但具体怎么审核由各科室护士决定。
 public interface HuiyuanUpdateBridge {
     R update(HuiyuanEntity entity, HttpServletRequest request);
 }

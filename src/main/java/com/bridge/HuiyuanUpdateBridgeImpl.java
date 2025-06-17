@@ -7,6 +7,14 @@ import com.service.HuiyuanService;
 import com.utils.R;
 import javax.servlet.http.HttpServletRequest;
 
+//2：护士执行更新前的检查（桥接实现类）
+/**
+ * 护士（HuiyuanUpdateBridgeImpl）拿到病人的新信息后，先做三重检查：
+ * 查系统：有没有其他病人用相同的身份证号？
+ * 查系统：有没有其他病人用相同的手机号？
+ * 查系统：有没有其他病人用相同的病历号？
+ * 如果检查通过，护士告诉医院系统（HuiyuanService）保存信息；如果冲突，就告诉病人 "信息重复，不能改"。
+ * **/
 public class HuiyuanUpdateBridgeImpl implements HuiyuanUpdateBridge {
     private HuiyuanService huiyuanService;
 
