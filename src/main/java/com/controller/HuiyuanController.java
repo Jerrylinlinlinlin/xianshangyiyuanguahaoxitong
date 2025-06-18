@@ -144,11 +144,8 @@ public class HuiyuanController {
     /**
     * 后端修改【桥接模式】
     */
-    //3：前台接待病人的更新请求（控制器）
-    /**
-     * 病人（客户端）到前台说 "我要改手机号"，前台（控制器）不自己处理，而是喊来门诊护士（HuiyuanUpdateBridgeImpl）："这位病人要更新信息，你去办一下～"
-     * 护士接过请求，按流程检查，最后把结果（成功 / 失败）返回给前台，前台再告诉病人。
-     * */
+    //3：控制器
+    //前台接待病人的更新请求
     @RequestMapping("/update")
     public R update(@RequestBody HuiyuanEntity huiyuan, HttpServletRequest request) {
         logger.debug("update方法:,,Controller:{},,huiyuan:{}", this.getClass().getName(), huiyuan.toString());

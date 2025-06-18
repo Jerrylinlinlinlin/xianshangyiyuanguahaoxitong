@@ -7,7 +7,8 @@ import com.service.HuiyuanService;
 import com.utils.R;
 import javax.servlet.http.HttpServletRequest;
 
-//2：护士执行更新前的检查（桥接实现类）
+//2：桥接实现类
+//护士执行更新前的检查
 /**
  * 护士（HuiyuanUpdateBridgeImpl）拿到病人的新信息后，先做三重检查：
  * 查系统：有没有其他病人用相同的身份证号？
